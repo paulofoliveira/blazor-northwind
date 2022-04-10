@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindDemo.Client", "Nor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindDemo.Models", "NorthwindDemo.Models\NorthwindDemo.Models.csproj", "{064B6F41-C655-4E1B-B638-4B58479D2447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindDemo.Infrastructure.Shared", "NorthwindDemo.Infrastructure.Shared\NorthwindDemo.Infrastructure.Shared.csproj", "{4E6ECA3E-9CCC-44E6-B766-8EA363DEB8B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthwindDemo.Infrastructure.Shared", "NorthwindDemo.Infrastructure.Shared\NorthwindDemo.Infrastructure.Shared.csproj", "{4E6ECA3E-9CCC-44E6-B766-8EA363DEB8B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

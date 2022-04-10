@@ -1,0 +1,29 @@
+﻿@inherits OrdersComponent
+@page "/orders"
+
+<PageTitle>@Title</PageTitle>
+
+<h1>@Title</h1>
+
+<DataGrid TItem="OrderDto"
+          Data="@List"
+          @bind-SelectedRow="@SelectedRow"
+          ReadData="@OnReadData"
+          TotalItems="@Total"
+          PageSize="@PageSize"
+          PageSizeChanged="PageSizeChanged"
+          ShowPager
+          ShowPageSizes
+          Responsive>
+    <DataGridCommandColumn />
+    <DataGridColumn Field="@nameof(OrderDto.Id)" Caption="#" />
+    <DataGridColumn Field="@nameof(OrderDto.Date)" Caption="Order Date" Sortable="true" SortDirection="SortDirection.Descending" DisplayFormat="{0:dd/MM/yyyy}" />
+    <DataGridColumn Field="@nameof(OrderDto.Customer)" Caption="Customer" />
+    <DataGridColumn Field="@nameof(OrderDto.Employee)" Caption="Employee" Sortable="false" />
+    <DataGridColumn Field="Ship.Date" Caption="Ship Date" Sortable="false" DisplayFormat="{0:dd/MM/yyyy}" />
+    <DataGridColumn Field="Ship.Name" Caption="Ship Name" Sortable="false" />
+    <DataGridColumn Field="Ship.Address" Caption="Ship Address" Sortable="false" />
+    <DataGridColumn Field="Ship.City" Caption="Ship City" Sortable="false" />
+    <DataGridColumn Field="Ship.PostalCode" Caption="Ship Postal Code" Sortable="false" />
+    <DataGridColumn Field="Ship.Country" Caption="Ship Country" Sortable="false" />
+</DataGrid>

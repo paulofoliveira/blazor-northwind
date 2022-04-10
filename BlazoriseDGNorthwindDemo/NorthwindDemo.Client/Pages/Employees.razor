@@ -1,0 +1,22 @@
+﻿@inherits EmployeesComponent
+@page "/employees"
+
+<PageTitle>@Title</PageTitle>
+
+<h1>@Title</h1>
+
+<DataGrid TItem="EmployeeDto"
+          Data="@List"
+          @bind-SelectedRow="@SelectedRow"
+          ReadData="@OnReadData"
+          TotalItems="@Total"
+          PageSize="@PageSize"
+          PageSizeChanged="PageSizeChanged"
+          ShowPager
+          ShowPageSizes
+          Responsive>
+    <DataGridCommandColumn />
+    <DataGridColumn Field="@nameof(EmployeeDto.Id)" Caption="Id" SortDirection="SortDirection.Descending" />
+    <DataGridColumn Field="@nameof(EmployeeDto.FirstName)" Caption="First Name" Sortable="false" />
+    <DataGridColumn Field="@nameof(EmployeeDto.LastName)" Caption="Last name" Sortable="false" />
+</DataGrid>

@@ -4,8 +4,8 @@ using NorthwindDemo.Models;
 
 namespace NorthwindDemo.Client.Pages
 {
-    public class CustomersComponent : DataGridComponent<CustomerDto, ICustomerDataService>
+    public class OrdersComponent : DataGridComponent<OrderDto, IOrderDataService>
     {
-        protected override string Title => "Customers";
+        protected override string Title => "Orders";
     }
 }

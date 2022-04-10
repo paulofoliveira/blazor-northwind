@@ -14,6 +14,8 @@ var apiUrl = builder.Configuration["ApiUrl"] ?? throw new Exception("Configuraçã
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(apiUrl) });
 builder.Services.AddScoped<ICustomerDataService, CustomerDataService>();
+builder.Services.AddScoped<IEmployeeDataService, EmployeeDataService>();
+builder.Services.AddScoped<IOrderDataService, OrderDataService>();
 
 builder.Services.AddBlazorise(options =>
    {

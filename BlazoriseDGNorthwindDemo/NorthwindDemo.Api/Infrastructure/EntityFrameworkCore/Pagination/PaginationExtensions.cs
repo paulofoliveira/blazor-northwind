@@ -17,11 +17,23 @@ namespace NorthwindDemo.Api.Infrastructure.EntityFrameworkCore.Pagination
             var pageCount = (double)result.RowCount / pagedQuery.PageSize;
             result.PageCount = (int)Math.Ceiling(pageCount);
 
-            result.Items = await query.Skip(pagedQuery.Page).Take(pagedQuery.PageSize).ToListAsync();
+            result.Items = await query.OrderBy(pagedQuery.SortColumns).Skip(pagedQuery.Page).Take(pagedQuery.PageSize).ToListAsync();
 
             return result;
         }
 
-        public static PagedQuery ToPagedQuery(this PagedQueryModel pagedQueryModel) => new() { Page = pagedQueryModel.Page, PageSize = pagedQueryModel.PageSize };
+        public static PagedQuery ToPagedQuery(this PagedQueryModel pagedQueryModel)
+        {
+            return new()
+            {
+                Page = pagedQueryModel.Page,
+                PageSize = pagedQueryModel.PageSize,
+                SortColumns = pagedQueryModel.SortColumns.Select(x => new PagedQueryColumn()
+                {
+                    Name = x.Name,
+                    Direction = x.Direction
+                })
+            };
+        }
     }
 }

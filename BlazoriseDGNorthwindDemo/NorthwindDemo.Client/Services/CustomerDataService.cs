@@ -1,25 +1,15 @@
-﻿using NorthwindDemo.Infrastructure.Shared.Pagination;
-using NorthwindDemo.Models;
-using System.Net.Http.Json;
+﻿using NorthwindDemo.Models;
 
 namespace NorthwindDemo.Client.Services
 {
-    public class CustomerDataService : ICustomerDataService
+    public class CustomerDataService : DataService<CustomerDto>, ICustomerDataService
     {
-        private readonly HttpClient _httpClient;
-        public CustomerDataService(HttpClient httpClient)
+        public CustomerDataService(HttpClient client) : base(client)
         {
-            _httpClient = httpClient;
         }
-        public async Task<PagedResult<CustomerDto>> GetCustomers(PagedQueryModel pagedQueryModel)
-        {
-            var response = await _httpClient.PostAsJsonAsync($"api/customers", pagedQueryModel);
-            return await response.Content.ReadFromJsonAsync<PagedResult<CustomerDto>>();
-        }
+
+        public override string Endpoint => "customers";
     }
 
-    public interface ICustomerDataService
-    {
-        Task<PagedResult<CustomerDto>> GetCustomers(PagedQueryModel pagedQueryModel);
-    }
+    public interface ICustomerDataService : IDataService<CustomerDto> { }
 }
