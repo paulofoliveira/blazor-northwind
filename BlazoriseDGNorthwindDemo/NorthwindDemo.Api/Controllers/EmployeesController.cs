@@ -8,30 +8,28 @@ namespace NorthwindDemo.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class EmployeesController : ControllerBase
     {
         private readonly NorthwindDbContext _context;
 
-        public CustomersController(NorthwindDbContext context)
+        public EmployeesController(NorthwindDbContext context)
         {
             _context = context;
         }
+
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> Post([FromBody] PagedQueryModel pagedQueryModel)
         {
             var pagedQuery = pagedQueryModel.ToPagedQuery();
 
-            var dto = await _context.Customers
-                .Select(x => new CustomerDto()
+            var dto = await _context.Employees
+                .Select(x => new EmployeeDto()
                 {
-                    CustomerId = x.CustomerID,
-                    CompanyName = x.CompanyName,
-                    ContactName = x.ContactName,
-                    ContactTitle = x.ContactTitle,
-                    Address = x.Address
-                })
-                .GetPaged(pagedQuery);
+                    Id = x.EmployeeID,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName
+                }).GetPaged(pagedQuery);
 
             return Ok(dto);
         }
