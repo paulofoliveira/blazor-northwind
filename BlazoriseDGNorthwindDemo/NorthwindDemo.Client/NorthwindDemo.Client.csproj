@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazorise.Bootstrap5" Version="1.0.2" />
+    <PackageReference Include="Blazorise.DataGrid" Version="1.0.2" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NorthwindDemo.Infrastructure.Shared\NorthwindDemo.Infrastructure.Shared.csproj" />
+    <ProjectReference Include="..\NorthwindDemo.Models\NorthwindDemo.Models.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,23 @@
+﻿@page "/customers"
+
+<PageTitle>Customers</PageTitle>
+
+<h1>Customers</h1>
+
+<DataGrid TItem="CustomerDto"
+          Data="@CustomerList"
+          @bind-SelectedRow="@SelectedCustomer"
+          ReadData="@OnReadData"
+          TotalItems="@Total"
+          ShowPager
+          ShowPageSizes
+          PageSize="10"
+          Responsive
+          Sortable="false">
+    <DataGridCommandColumn />
+    <DataGridColumn Field="@nameof(CustomerDto.CustomerId)" Caption="#" />
+    <DataGridColumn Field="@nameof(CustomerDto.CompanyName)" Caption="Company Name" />
+    <DataGridColumn Field="@nameof(CustomerDto.ContactName)" Caption="Contact name" />
+    <DataGridColumn Field="@nameof(CustomerDto.ContactTitle)" Caption="Contact Title" />
+    <DataGridColumn Field="@nameof(CustomerDto.Address)" Caption="Address" />
+</DataGrid>
