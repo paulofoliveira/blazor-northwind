@@ -14,10 +14,9 @@
           PageSizeChanged="PageSizeChanged"
           ShowPager
           ShowPageSizes
-          Responsive
-          Sortable="false">
+          Responsive>
     <DataGridCommandColumn />
-    <DataGridColumn Field="@nameof(EmployeeDto.Id)" Caption="#" />
-    <DataGridColumn Field="@nameof(EmployeeDto.FirstName)" Caption="First Name" />
-    <DataGridColumn Field="@nameof(EmployeeDto.LastName)" Caption="Last name" />
+    <DataGridColumn Field="@nameof(EmployeeDto.Id)" Caption="Id" SortDirection="SortDirection.Descending" />
+    <DataGridColumn Field="@nameof(EmployeeDto.FirstName)" Caption="First Name" Sortable="false" />
+    <DataGridColumn Field="@nameof(EmployeeDto.LastName)" Caption="Last name" Sortable="false" />
 </DataGrid>
