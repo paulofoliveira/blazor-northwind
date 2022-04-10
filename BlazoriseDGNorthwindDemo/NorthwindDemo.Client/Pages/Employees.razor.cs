@@ -44,7 +44,7 @@ namespace NorthwindDemo.Client.Pages
             if (result == null)
                 throw new Exception("Unhandled ReadDataMode");
 
-            result.SortableColumns = e.Columns.Where(x => x.SortDirection != SortDirection.Default)
+            result.SortColumns = e.Columns.Where(x => x.SortDirection != SortDirection.Default)
                                      .OrderBy(x => x.SortIndex)
                                      .Select(x => new PagedQueryColumnModel
                                      {

@@ -1,0 +1,21 @@
+﻿@page "/orders"
+
+<PageTitle>Orders</PageTitle>
+
+<h1>Orders</h1>
+
+<DataGrid TItem="OrderDto"
+          Data="@OrderList"
+          @bind-SelectedRow="@SelectedOrder"
+          ReadData="@OnReadData"
+          TotalItems="@Total"
+          ShowPager
+          ShowPageSizes
+          PageSize="10"
+          Responsive>
+    <DataGridCommandColumn />
+    <DataGridColumn Field="@nameof(OrderDto.Id)" Caption="#" />
+    <DataGridColumn Field="@nameof(OrderDto.Date)" Caption="Order Date" Sortable="true" SortDirection="SortDirection.Descending" />
+    <DataGridColumn Field="@nameof(OrderDto.Customer)" Caption="Customer" />
+    <DataGridColumn Field="@nameof(OrderDto.Employee)" Caption="Employee" />
+</DataGrid>

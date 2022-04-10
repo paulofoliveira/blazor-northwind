@@ -7,17 +7,14 @@ using NorthwindDemo.Models;
 
 namespace NorthwindDemo.Client.Pages
 {
-    public partial class Customers
+    public partial class Orders
     {
         [Inject]
-        private ICustomerDataService CustomerDataService { get; set; }
-
-        protected List<CustomerDto> CustomerList { get; set; } = new List<CustomerDto>();
+        private IOrderDataService OrderDataService { get; set; }
+        protected List<OrderDto> OrderList { get; set; } = new List<OrderDto>();
         protected int Total { get; set; }
-
-        protected CustomerDto SelectedCustomer { get; set; }
-
-        private async Task OnReadData(DataGridReadDataEventArgs<CustomerDto> e)
+        protected OrderDto SelectedOrder { get; set; }
+        private async Task OnReadData(DataGridReadDataEventArgs<OrderDto> e)
         {
             if (!e.CancellationToken.IsCancellationRequested)
             {
@@ -25,14 +22,14 @@ namespace NorthwindDemo.Client.Pages
 
                 if (!e.CancellationToken.IsCancellationRequested)
                 {
-                    var pagedResult = await CustomerDataService.GetData(pagedQueryModel);
+                    var pagedResult = await OrderDataService.GetData(pagedQueryModel);
 
                     Total = pagedResult.RowCount;
-                    CustomerList = pagedResult.Items.ToList();
+                    OrderList = pagedResult.Items.ToList();
                 }
             }
         }
-        private static PagedQueryModel GetPagedQueryModel(DataGridReadDataEventArgs<CustomerDto> e)
+        private static PagedQueryModel GetPagedQueryModel(DataGridReadDataEventArgs<OrderDto> e)
         {
             var result = e.ReadDataMode == DataGridReadDataMode.Virtualize ? new PagedQueryModel()
             {
