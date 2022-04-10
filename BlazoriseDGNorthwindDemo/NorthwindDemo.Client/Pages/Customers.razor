@@ -4,4 +4,17 @@
 
 <h1>Customers</h1>
 
-<p>This is the Customers Page</p>
+<DataGrid TItem="CustomerDto"
+          Data="@CustomerList"
+          @bind-SelectedRow="@SelectedCustomer"
+          ShowPager
+          ShowPageSizes
+          PageSize="10"
+          Responsive>
+    <DataGridCommandColumn />
+    <DataGridColumn Field="@nameof(CustomerDto.CustomerId)" Caption="#" Sortable="false" />
+    <DataGridColumn Field="@nameof(CustomerDto.CompanyName)" Caption="Company Name" />
+    <DataGridColumn Field="@nameof(CustomerDto.ContactName)" Caption="Contact name" />
+    <DataGridColumn Field="@nameof(CustomerDto.ContactTitle)" Caption="Contact Title" />
+    <DataGridColumn Field="@nameof(CustomerDto.Address)" Caption="Address" />
+</DataGrid>

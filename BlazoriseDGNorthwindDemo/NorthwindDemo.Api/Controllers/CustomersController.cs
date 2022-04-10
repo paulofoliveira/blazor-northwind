@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NorthwindDemo.Api.Infrastructure.Data;
-using NorthwindDemo.Api.Models;
+using NorthwindDemo.Models;
 
 namespace NorthwindDemo.Api.Controllers
 {

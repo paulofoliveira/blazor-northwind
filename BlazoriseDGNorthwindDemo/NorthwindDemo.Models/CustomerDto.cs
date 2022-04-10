@@ -1,4 +1,4 @@
-﻿namespace NorthwindDemo.Api.Models
+﻿namespace NorthwindDemo.Models
 {
     public class CustomerDto
     {
