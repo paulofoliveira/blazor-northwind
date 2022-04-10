@@ -1,0 +1,21 @@
+﻿@page "/employees"
+
+<PageTitle>Employees</PageTitle>
+
+<h1>Employees</h1>
+
+<DataGrid TItem="EmployeeDto"
+          Data="@EmployeeList"
+          @bind-SelectedRow="@SelectedEmployee"
+          ReadData="@OnReadData"
+          TotalItems="@Total"
+          ShowPager
+          ShowPageSizes
+          PageSize="10"
+          Responsive
+          Sortable="false">
+    <DataGridCommandColumn />
+    <DataGridColumn Field="@nameof(EmployeeDto.Id)" Caption="#" />
+    <DataGridColumn Field="@nameof(EmployeeDto.FirstName)" Caption="First Name" />
+    <DataGridColumn Field="@nameof(EmployeeDto.LastName)" Caption="Last name" />
+</DataGrid>
