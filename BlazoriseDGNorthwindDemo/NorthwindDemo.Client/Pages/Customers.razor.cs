@@ -25,7 +25,7 @@ namespace NorthwindDemo.Client.Pages
 
                 if (!e.CancellationToken.IsCancellationRequested)
                 {
-                    var pagedResult = await CustomerDataService.GetCustomers(pagedQueryModel);
+                    var pagedResult = await CustomerDataService.GetData(pagedQueryModel);
 
                     Total = pagedResult.RowCount;
                     CustomerList = pagedResult.Items.ToList();
