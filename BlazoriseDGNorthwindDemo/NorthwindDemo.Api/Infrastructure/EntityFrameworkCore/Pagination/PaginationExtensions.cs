@@ -17,7 +17,6 @@ namespace NorthwindDemo.Api.Infrastructure.EntityFrameworkCore.Pagination
             var pageCount = (double)result.RowCount / pagedQuery.PageSize;
             result.PageCount = (int)Math.Ceiling(pageCount);
 
-            //var skip = (pagedQuery.Page - 1) * pagedQuery.PageSize;
             result.Items = await query.Skip(pagedQuery.Page).Take(pagedQuery.PageSize).ToListAsync();
 
             return result;

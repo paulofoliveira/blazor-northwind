@@ -16,9 +16,9 @@ namespace NorthwindDemo.Api.Controllers
         {
             _context = context;
         }
-        [HttpGet]
+        [HttpPost]
         [Route("")]
-        public async Task<IActionResult> Get([FromQuery] PagedQueryModel pagedQueryModel)
+        public async Task<IActionResult> Post([FromBody] PagedQueryModel pagedQueryModel)
         {
             var pagedQuery = pagedQueryModel.ToPagedQuery();
 

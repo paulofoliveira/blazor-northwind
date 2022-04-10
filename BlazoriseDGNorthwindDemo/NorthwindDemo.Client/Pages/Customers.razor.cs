@@ -1,4 +1,5 @@
-﻿using Blazorise.DataGrid;
+﻿using Blazorise;
+using Blazorise.DataGrid;
 using Microsoft.AspNetCore.Components;
 using NorthwindDemo.Client.Services;
 using NorthwindDemo.Infrastructure.Shared.Pagination;
@@ -33,24 +34,28 @@ namespace NorthwindDemo.Client.Pages
         }
         private static PagedQueryModel GetPagedQueryModel(DataGridReadDataEventArgs<CustomerDto> e)
         {
-            if (e.ReadDataMode == DataGridReadDataMode.Virtualize)
+            var result = e.ReadDataMode == DataGridReadDataMode.Virtualize ? new PagedQueryModel()
             {
-                return new PagedQueryModel()
-                {
-                    Page = e.VirtualizeOffset,
-                    PageSize = e.VirtualizeCount
-                };
-            }
-            else if (e.ReadDataMode == DataGridReadDataMode.Paging)
+                Page = e.VirtualizeOffset,
+                PageSize = e.VirtualizeCount
+            } : e.ReadDataMode == DataGridReadDataMode.Paging ? new PagedQueryModel()
             {
-                return new PagedQueryModel()
-                {
-                    Page = (e.Page - 1) * e.PageSize,
-                    PageSize = e.PageSize
-                };
-            }
+                Page = (e.Page - 1) * e.PageSize,
+                PageSize = e.PageSize
+            } : default;
 
-            throw new Exception("Unhandled ReadDataMode");
+            if (result == null)
+                throw new Exception("Unhandled ReadDataMode");
+
+            result.SortableColumns = e.Columns.Where(x => x.SortDirection != SortDirection.Default)
+                                     .OrderBy(x => x.SortIndex)
+                                     .Select(x => new PagedQueryColumnModel
+                                     {
+                                         Name = x.Field,
+                                         Direction = x.SortDirection == SortDirection.Ascending ? "asc" : "desc"
+                                     }).ToArray();
+
+            return result;
         }
     }
 }

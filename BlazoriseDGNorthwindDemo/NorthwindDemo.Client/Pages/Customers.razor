@@ -12,9 +12,10 @@
           ShowPager
           ShowPageSizes
           PageSize="10"
-          Responsive>
+          Responsive
+          Sortable="false">
     <DataGridCommandColumn />
-    <DataGridColumn Field="@nameof(CustomerDto.CustomerId)" Caption="#" Sortable="false" />
+    <DataGridColumn Field="@nameof(CustomerDto.CustomerId)" Caption="#" />
     <DataGridColumn Field="@nameof(CustomerDto.CompanyName)" Caption="Company Name" />
     <DataGridColumn Field="@nameof(CustomerDto.ContactName)" Caption="Contact name" />
     <DataGridColumn Field="@nameof(CustomerDto.ContactTitle)" Caption="Contact Title" />

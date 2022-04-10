@@ -13,7 +13,8 @@ namespace NorthwindDemo.Client.Services
         }
         public async Task<PagedResult<CustomerDto>> GetCustomers(PagedQueryModel pagedQueryModel)
         {
-            return await _httpClient.GetFromJsonAsync<PagedResult<CustomerDto>>($"api/customers?{pagedQueryModel.ToQueryString()}");
+            var response = await _httpClient.PostAsJsonAsync($"api/customers", pagedQueryModel);
+            return await response.Content.ReadFromJsonAsync<PagedResult<CustomerDto>>();
         }
     }
 
