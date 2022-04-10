@@ -1,17 +1,19 @@
-﻿@page "/employees"
+﻿@inherits EmployeesComponent
+@page "/employees"
 
-<PageTitle>Employees</PageTitle>
+<PageTitle>@Title</PageTitle>
 
-<h1>Employees</h1>
+<h1>@Title</h1>
 
 <DataGrid TItem="EmployeeDto"
-          Data="@EmployeeList"
-          @bind-SelectedRow="@SelectedEmployee"
+          Data="@List"
+          @bind-SelectedRow="@SelectedRow"
           ReadData="@OnReadData"
           TotalItems="@Total"
+          PageSize="@PageSize"
+          PageSizeChanged="PageSizeChanged"
           ShowPager
           ShowPageSizes
-          PageSize="10"
           Responsive
           Sortable="false">
     <DataGridCommandColumn />

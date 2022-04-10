@@ -1,17 +1,19 @@
-﻿@page "/customers"
+﻿@inherits CustomersComponent
+@page "/customers"
 
-<PageTitle>Customers</PageTitle>
+<PageTitle>@Title</PageTitle>
 
-<h1>Customers</h1>
+<h1>@Title</h1>
 
 <DataGrid TItem="CustomerDto"
-          Data="@CustomerList"
-          @bind-SelectedRow="@SelectedCustomer"
+          Data="@List"
+          @bind-SelectedRow="@SelectedRow"
           ReadData="@OnReadData"
           TotalItems="@Total"
+          PageSize="@PageSize"
+          PageSizeChanged="PageSizeChanged"
           ShowPager
           ShowPageSizes
-          PageSize="10"
           Responsive
           Sortable="false">
     <DataGridCommandColumn />

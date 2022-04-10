@@ -1,17 +1,19 @@
-﻿@page "/orders"
+﻿@inherits OrdersComponent
+@page "/orders"
 
-<PageTitle>Orders</PageTitle>
+<PageTitle>@Title</PageTitle>
 
-<h1>Orders</h1>
+<h1>@Title</h1>
 
 <DataGrid TItem="OrderDto"
-          Data="@OrderList"
-          @bind-SelectedRow="@SelectedOrder"
+          Data="@List"
+          @bind-SelectedRow="@SelectedRow"
           ReadData="@OnReadData"
           TotalItems="@Total"
+          PageSize="@PageSize"
+          PageSizeChanged="PageSizeChanged"
           ShowPager
           ShowPageSizes
-          PageSize="10"
           Responsive>
     <DataGridCommandColumn />
     <DataGridColumn Field="@nameof(OrderDto.Id)" Caption="#" />
