@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using NorthwindDemo.Api.Infrastructure.Data;
+using NorthwindDemo.Api.Infrastructure.EntityFrameworkCore.Pagination;
+using NorthwindDemo.Infrastructure.Shared.Pagination;
 using NorthwindDemo.Models;
 
 namespace NorthwindDemo.Api.Controllers
@@ -17,9 +18,11 @@ namespace NorthwindDemo.Api.Controllers
         }
         [HttpGet]
         [Route("")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] PagedQueryModel pagedQueryModel)
         {
-            var dto = (await _context.Customers.ToListAsync())
+            var pagedQuery = pagedQueryModel.ToPagedQuery();
+
+            var dto = await _context.Customers
                 .Select(x => new CustomerDto()
                 {
                     CustomerId = x.CustomerId,
@@ -27,7 +30,8 @@ namespace NorthwindDemo.Api.Controllers
                     ContactName = x.ContactName,
                     ContactTitle = x.ContactTitle,
                     Address = x.Address
-                });
+                })
+                .GetPaged(pagedQuery);
 
             return Ok(dto);
         }

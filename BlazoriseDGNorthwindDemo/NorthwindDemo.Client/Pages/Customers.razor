@@ -7,6 +7,8 @@
 <DataGrid TItem="CustomerDto"
           Data="@CustomerList"
           @bind-SelectedRow="@SelectedCustomer"
+          ReadData="@OnReadData"
+          TotalItems="@Total"
           ShowPager
           ShowPageSizes
           PageSize="10"

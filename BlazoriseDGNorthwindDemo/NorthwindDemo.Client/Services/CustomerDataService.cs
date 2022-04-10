@@ -1,4 +1,5 @@
-﻿using NorthwindDemo.Models;
+﻿using NorthwindDemo.Infrastructure.Shared.Pagination;
+using NorthwindDemo.Models;
 using System.Net.Http.Json;
 
 namespace NorthwindDemo.Client.Services
@@ -10,14 +11,14 @@ namespace NorthwindDemo.Client.Services
         {
             _httpClient = httpClient;
         }
-        public async Task<List<CustomerDto>> GetCustomers()
+        public async Task<PagedResult<CustomerDto>> GetCustomers(PagedQueryModel pagedQueryModel)
         {
-            return await _httpClient.GetFromJsonAsync<List<CustomerDto>>("api/customers");
+            return await _httpClient.GetFromJsonAsync<PagedResult<CustomerDto>>($"api/customers?{pagedQueryModel.ToQueryString()}");
         }
     }
 
     public interface ICustomerDataService
     {
-        Task<List<CustomerDto>> GetCustomers();
+        Task<PagedResult<CustomerDto>> GetCustomers(PagedQueryModel pagedQueryModel);
     }
 }
