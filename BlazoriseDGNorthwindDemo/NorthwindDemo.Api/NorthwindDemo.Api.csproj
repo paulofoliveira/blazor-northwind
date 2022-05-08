@@ -3,9 +3,13 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<Configurations>Debug;Release;Staging</Configurations>		
+		<Configurations>Debug;Release;Staging</Configurations>
 	</PropertyGroup>
-	
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Staging|AnyCPU'">
+		<Optimize>True</Optimize>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
@@ -16,4 +20,14 @@
 		<ProjectReference Include="..\NorthwindDemo.Models\NorthwindDemo.Models.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<Content Remove="web.Debug.config" />
+		<Content Remove="web.Release.config" />
+		<Content Remove="web.Staging.config" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="web.Debug.config" />
+		<None Include="web.Staging.config" />
+		<None Include="web.Release.config" />
+	</ItemGroup>
 </Project>
