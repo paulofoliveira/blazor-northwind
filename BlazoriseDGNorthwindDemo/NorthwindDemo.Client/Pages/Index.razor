@@ -1,6 +1,8 @@
-﻿@page "/"
+﻿@inject IWebAssemblyHostEnvironment hostEnvironment
+
+@page "/"
 
 <PageTitle>Initial Page</PageTitle>
 
 <h1>Hello, guys!</h1>
-Welcome to your new app (Blazorise DataGrid with Northwind Database) ;D
+Welcome to your new app (Blazorise DataGrid with Northwind Database) in @hostEnvironment.Environment ;D

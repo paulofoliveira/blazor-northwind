@@ -353,3 +353,6 @@ MigrationBackup/
 /BlazoriseDGNorthwindDemo/NorthwindDemo.Api/appsettings.Production.json
 /BlazoriseDGNorthwindDemo/NorthwindDemo.Api/.config/dotnet-tools.json
 /BlazoriseDGNorthwindDemo/NorthwindDemo.Api/appsettings.Staging.json
+/BlazoriseDGNorthwindDemo/NorthwindDemo.Client/wwwroot/appsettings.Staging.json
+/BlazoriseDGNorthwindDemo/NorthwindDemo.Client/wwwroot/appsettings.Production.json
+/BlazoriseDGNorthwindDemo/NorthwindDemo.Client/wwwroot/blazorEnv.js

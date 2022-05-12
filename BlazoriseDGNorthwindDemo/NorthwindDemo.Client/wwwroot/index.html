@@ -12,6 +12,20 @@
     <link href="_content/Blazorise.Bootstrap5/blazorise.bootstrap5.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="NorthwindDemo.Client.styles.css" rel="stylesheet" />
+    <script src="blazorEnv.js"></script>
+    <script>
+        const originalFetch = fetch;
+        const getEnvironmentName = function (blazorEnvironment) {
+            return blazorEnvironment === 'Debug' ? 'Development' : blazorEnvironment === 'Release' ? 'Production' : blazorEnvironment;
+        }
+
+        fetch = async (url, options) => {
+            const response = await originalFetch(url, options);
+            return url.endsWith('/blazor.boot.json')
+                ? new Response(await response.blob(), { headers: { 'blazor-environment': getEnvironmentName(window.BlazorEnvironment) } })
+                : response;
+        };
+    </script>
 </head>
 <body>
     <div id="app">Loading...</div>
@@ -20,6 +34,7 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>

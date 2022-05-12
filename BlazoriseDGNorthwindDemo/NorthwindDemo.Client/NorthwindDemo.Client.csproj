@@ -19,4 +19,8 @@
     <ProjectReference Include="..\NorthwindDemo.Models\NorthwindDemo.Models.csproj" />
   </ItemGroup>
 
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="echo window.BlazorEnvironment = '$(ConfigurationName)'; &gt; $(ProjectDir)wwwroot\blazorEnv.js" />
+  </Target>
+
 </Project>
