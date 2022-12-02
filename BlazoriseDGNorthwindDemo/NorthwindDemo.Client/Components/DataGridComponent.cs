@@ -1,10 +1,10 @@
 ﻿using Blazorise;
 using Blazorise.DataGrid;
 using Microsoft.AspNetCore.Components;
-using NorthwindDemo.Client.Services;
-using NorthwindDemo.Infrastructure.Shared.Pagination;
+using BlazorNorthwind.Client.Services;
+using BlazorNorthwind.Infrastructure.Shared.Pagination;
 
-namespace NorthwindDemo.Client.Components
+namespace BlazorNorthwind.Client.Components
 {
     public abstract class DataGridComponent<TDto, TDataService> : ComponentBase
         where TDto : class

@@ -1,6 +1,6 @@
-﻿using NorthwindDemo.Models;
+﻿using BlazorNorthwind.Models;
 
-namespace NorthwindDemo.Client.Services
+namespace BlazorNorthwind.Client.Services
 {
     public class OrderDataService : DataService<OrderDto>, IOrderDataService
     {

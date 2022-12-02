@@ -1,4 +1,4 @@
-﻿namespace NorthwindDemo.Models
+﻿namespace BlazorNorthwind.Models
 {
     public class EmployeeDto
     {

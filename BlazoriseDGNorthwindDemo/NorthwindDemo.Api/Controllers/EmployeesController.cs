@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NorthwindDemo.Api.Infrastructure.Data;
-using NorthwindDemo.Api.Infrastructure.EntityFrameworkCore.Pagination;
-using NorthwindDemo.Infrastructure.Shared.Pagination;
-using NorthwindDemo.Models;
+using BlazorNorthwind.Api.Infrastructure.Data;
+using BlazorNorthwind.Api.Infrastructure.EntityFrameworkCore.Pagination;
+using BlazorNorthwind.Infrastructure.Shared.Pagination;
+using BlazorNorthwind.Models;
 
-namespace NorthwindDemo.Api.Controllers
+namespace BlazorNorthwind.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

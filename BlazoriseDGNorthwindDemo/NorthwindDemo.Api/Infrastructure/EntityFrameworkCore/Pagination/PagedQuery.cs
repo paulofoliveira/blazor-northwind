@@ -1,4 +1,4 @@
-﻿namespace NorthwindDemo.Api.Infrastructure.EntityFrameworkCore.Pagination
+﻿namespace BlazorNorthwind.Api.Infrastructure.EntityFrameworkCore.Pagination
 {
     public class PagedQuery
     {

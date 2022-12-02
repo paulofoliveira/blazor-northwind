@@ -1,8 +1,8 @@
-﻿using NorthwindDemo.Client.Components;
-using NorthwindDemo.Client.Services;
-using NorthwindDemo.Models;
+﻿using BlazorNorthwind.Client.Components;
+using BlazorNorthwind.Client.Services;
+using BlazorNorthwind.Models;
 
-namespace NorthwindDemo.Client.Pages
+namespace BlazorNorthwind.Client.Pages
 {
     public class CustomersComponent : DataGridComponent<CustomerDto, ICustomerDataService>
     {

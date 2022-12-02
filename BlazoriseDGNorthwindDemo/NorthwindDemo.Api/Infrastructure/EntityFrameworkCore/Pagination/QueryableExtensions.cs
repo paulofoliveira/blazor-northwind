@@ -2,7 +2,7 @@
 
 // Read me "How to dynamically order by certain entity properties in Entity Framework 7 (Core)": https://stackoverflow.com/questions/36298868/how-to-dynamically-order-by-certain-entity-properties-in-entity-framework-7-cor
 
-namespace NorthwindDemo.Api.Infrastructure.EntityFrameworkCore.Pagination
+namespace BlazorNorthwind.Api.Infrastructure.EntityFrameworkCore.Pagination
 {
     public static class QueryableExtensions
     {

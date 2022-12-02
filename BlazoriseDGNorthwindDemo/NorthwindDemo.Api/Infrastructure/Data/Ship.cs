@@ -1,4 +1,4 @@
-﻿namespace NorthwindDemo.Api.Infrastructure.Data
+﻿namespace BlazorNorthwind.Api.Infrastructure.Data
 {
     public class Ship
     {

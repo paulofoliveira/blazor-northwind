@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using NorthwindDemo.Api.Infrastructure.Data;
+using BlazorNorthwind.Api.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

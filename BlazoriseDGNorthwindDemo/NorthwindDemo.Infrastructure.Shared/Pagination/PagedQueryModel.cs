@@ -1,4 +1,4 @@
-﻿namespace NorthwindDemo.Infrastructure.Shared.Pagination
+﻿namespace BlazorNorthwind.Infrastructure.Shared.Pagination
 {
     public class PagedQueryModel
     {

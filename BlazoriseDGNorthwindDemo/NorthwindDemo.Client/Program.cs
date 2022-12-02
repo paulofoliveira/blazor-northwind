@@ -3,8 +3,8 @@ using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using NorthwindDemo.Client;
-using NorthwindDemo.Client.Services;
+using BlazorNorthwind.Client;
+using BlazorNorthwind.Client.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");

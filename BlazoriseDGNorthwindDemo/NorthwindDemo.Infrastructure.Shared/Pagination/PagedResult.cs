@@ -1,4 +1,4 @@
-﻿namespace NorthwindDemo.Infrastructure.Shared.Pagination
+﻿namespace BlazorNorthwind.Infrastructure.Shared.Pagination
 {
     // Read more: "Paging with Entity Framework Core": https://www.codingame.com/playgrounds/5363/paging-with-entity-framework-core
 

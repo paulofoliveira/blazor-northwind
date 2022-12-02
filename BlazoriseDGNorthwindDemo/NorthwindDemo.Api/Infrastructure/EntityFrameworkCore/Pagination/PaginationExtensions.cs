@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NorthwindDemo.Infrastructure.Shared.Pagination;
+using BlazorNorthwind.Infrastructure.Shared.Pagination;
 
-namespace NorthwindDemo.Api.Infrastructure.EntityFrameworkCore.Pagination
+namespace BlazorNorthwind.Api.Infrastructure.EntityFrameworkCore.Pagination
 {
     public static class PaginationExtensions
     {

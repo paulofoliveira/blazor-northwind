@@ -1,7 +1,7 @@
-﻿using NorthwindDemo.Infrastructure.Shared.Pagination;
+﻿using BlazorNorthwind.Infrastructure.Shared.Pagination;
 using System.Net.Http.Json;
 
-namespace NorthwindDemo.Client.Services
+namespace BlazorNorthwind.Client.Services
 {
     public abstract class DataService<TDto> : IDataService<TDto>
         where TDto : class
