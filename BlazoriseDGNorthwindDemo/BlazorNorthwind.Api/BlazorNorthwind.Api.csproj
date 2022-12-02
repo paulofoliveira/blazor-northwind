@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NorthwindDemo.Infrastructure.Shared\BlazorNorthwind.Infrastructure.Shared.csproj" />
-    <ProjectReference Include="..\NorthwindDemo.Models\BlazorNorthwind.Models.csproj" />
+    <ProjectReference Include="..\BlazorNorthwind.Infrastructure.Shared\BlazorNorthwind.Infrastructure.Shared.csproj" />
+    <ProjectReference Include="..\BlazorNorthwind.Models\BlazorNorthwind.Models.csproj" />
   </ItemGroup>
 
 </Project>
